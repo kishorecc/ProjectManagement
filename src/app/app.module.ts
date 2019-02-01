@@ -7,13 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersComponent } from './users/users.component';
+
 import {
   MatButtonModule,
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
-  MatTabsModule
+  MatTabsModule,
+  MatInputModule,
+  MatFormFieldModule,MatListModule
 } from '@angular/material';
 
 
@@ -31,7 +34,8 @@ import {
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule,MatTabsModule       
+    MatCardModule,MatTabsModule,MatInputModule,FormsModule,MatFormFieldModule,MatListModule
+           
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Task } from './task';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import { User } from './users/users.model';
 
 
 const endpoint = 'http://localhost:61588/api/';
@@ -28,6 +29,18 @@ export class TaskServiceService {
   getUsers(): Observable<any> {
   return this.http.get(endpoint + 'users').pipe(map(this.extractData));
 }
+getUser(user_id): Observable<any> {
+  return this.http.get(endpoint + 'users/'+user_id).pipe(map(this.extractData));
+}
+
+addUser(user:User): Observable<User> {
+  console.log(user)
+  return this.http.post<User>(endpoint + 'users/',user,httpOptions).pipe(
+    catchError(this.handleError('AddUSer', user))
+  );;
+}
+
+
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 
