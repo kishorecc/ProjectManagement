@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskServiceService } from '../task-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './users.model';
+import {MatTableDataSource} from '@angular/material'
 
 @Component({
   selector: 'app-users',
@@ -14,6 +15,7 @@ newUser:User;
 fName
 lName
 empID
+isEdit:boolean=false
 
   constructor(public rest:TaskServiceService, private route: ActivatedRoute, private router: Router) {
 
@@ -30,11 +32,17 @@ empID
       });
     }
     getUser(user_id) {
+      
       this.users = [];
-      this.rest.getUser(user_id).subscribe((data: {}) => {
+      this.rest.getUser(user_id).subscribe((data) => {
         console.log(data);
-        this.users = data;
+        this.fName=data.f_name
+        this.lName=data.l_name
+        this.empID= data.employee_id;
+        this.newUser=data
+        this.getUsers()
       });
+      this.isEdit=true
     }
     addUser(){
       this.users = [];
@@ -44,30 +52,32 @@ empID
       });
     }
     SaveUser(formVal){
-      console.log(formVal.fName)
+      if(!this.isEdit){
       this.newUser={
-        "f_name":formVal.fName,
-        "l_name":formVal.lName,
-        "employee_id":formVal.empID,
+        "f_name":this.fName,
+        "l_name":this.lName,
+        "employee_id":this.empID,
         "project_id":1,
         "task_id":3,
         "user_id":0
       }
       this.rest.addUser(this.newUser).subscribe(data=>{this.getUsers()});
-      //this.getUsers();  
+    }
+    else{
+      this.newUser.f_name=this.fName
+      this.newUser.l_name=this.lName
+        this.newUser.employee_id=this.empID
+      this.rest.updateUser(this.newUser).subscribe(data=>{this.getUsers()});}
+       
 
     }
     updateUser(user_id){
       console.log(user_id)
-      this.rest.getUser(user_id).subscribe();
-      
+      this.rest.getUser(user_id).subscribe();     
 
     }
-
-    applyFilter(filterValue: string) {
-      this.users.filter(user=>user.fName===filterValue.trim().toLowerCase());
-      
-    }
+    
+    
 
 
 }

@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersComponent } from './users/users.component';
-
+import { FilterPipe} from './filter';
 import {
   MatButtonModule,
   MatMenuModule,
@@ -16,14 +16,15 @@ import {
   MatCardModule,
   MatTabsModule,
   MatInputModule,
-  MatFormFieldModule,MatListModule
+  MatFormFieldModule,MatListModule,MatTableDataSource
 } from '@angular/material';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    FilterPipe 
   ],
   imports: [
     BrowserModule,

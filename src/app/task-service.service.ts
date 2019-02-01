@@ -40,6 +40,13 @@ addUser(user:User): Observable<User> {
   );;
 }
 
+updateUser(user:User): Observable<User> {
+  console.log(user)
+  return this.http.put<User>(endpoint + 'users/', user, httpOptions).pipe(
+    catchError(this.handleError('AddUSer', user))
+  );;
+}
+
 
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {

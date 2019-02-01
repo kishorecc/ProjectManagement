@@ -1,0 +1,33 @@
+<form #userForm="ngForm" name="userForm" (ngSubmit)="SaveUser()">
+    <div class="example-container">
+    <mat-form-field> <input matInput placeholder="First Name" id="firstname" [(ngModel)]="fName" name="fName" required></mat-form-field>
+       <mat-form-field>  <input matInput placeholder="Last Name" id="lastname" [(ngModel)]="lName" name="lName" required></mat-form-field>
+       <mat-form-field>  <input matInput placeholder="Employee ID" id="empID" [(ngModel)]="empID" name="empID" required></mat-form-field>
+    </div>
+      <button  type="submit" mat-raised-button *ngIf="!isEdit">Add User</button>
+      <button  type="submit" mat-raised-button *ngIf="isEdit" >Update</button>
+      <button type="reset" mat-raised-button >Reset</button>
+      
+</form>
+<mat-form-field>
+    <input matInput ng-model="searchText" placeholder="enter search term here">
+  </mat-form-field>
+<table>
+<tr *ngFor="let user of (users| filter :f_name : searchText);">
+<td>
+<mat-list role="list">
+    <mat-list-item role="listitem">First Name: {{user.f_name}}</mat-list-item>
+    <mat-list-item role="listitem">Last Name: {{user.l_name}}</mat-list-item>
+    <mat-list-item role="listitem">Employee ID: {{user.employee_id}}</mat-list-item>
+ </mat-list>
+</td>
+<td>
+    <mat-list role="list">
+        <mat-list-item role="listitem"><button  type="submit" mat-raised-button (click)="getUser(user.user_id)">Edit</button></mat-list-item>
+        <mat-list-item role="listitem"><button  type="submit" mat-raised-button >Delete</button></mat-list-item>
+        
+     </mat-list>
+
+</td>
+</tr>
+</table>
