@@ -9,11 +9,21 @@
       <button type="reset" mat-raised-button >Reset</button>
       
 </form>
+<br>
+<br>
 <mat-form-field>
-    <input matInput ng-model="searchText" placeholder="enter search term here">
+    <input matInput [(ngModel)]="searchText" placeholder="Search here">
+    
   </mat-form-field>
+  Sort by:
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle (click)="updateSort('f_name')"  name="f_name" >First name</mat-button-toggle>
+        <mat-button-toggle  (click)="updateSort('l_name')"  >Last Name</mat-button-toggle>
+        <mat-button-toggle  (click)="updateSort('employee_id')" >Employee ID</mat-button-toggle>
+</mat-button-toggle-group>
+<br>
 <table>
-<tr *ngFor="let user of (users| filter :f_name : searchText);">
+    <tr *ngFor="let user of users | filter:searchText| sortingItems:sortOrder :1">
 <td>
 <mat-list role="list">
     <mat-list-item role="listitem">First Name: {{user.f_name}}</mat-list-item>
@@ -24,7 +34,7 @@
 <td>
     <mat-list role="list">
         <mat-list-item role="listitem"><button  type="submit" mat-raised-button (click)="getUser(user.user_id)">Edit</button></mat-list-item>
-        <mat-list-item role="listitem"><button  type="submit" mat-raised-button >Delete</button></mat-list-item>
+        <mat-list-item role="listitem"><button  type="submit" mat-raised-button (click)="deleteUser(user.user_id)">Delete</button></mat-list-item>
         
      </mat-list>
 

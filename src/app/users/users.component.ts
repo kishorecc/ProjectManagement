@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './users.model';
 import {MatTableDataSource} from '@angular/material'
 
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -15,6 +16,8 @@ newUser:User;
 fName
 lName
 empID
+sortOrder:string=""
+searchText: string =""
 isEdit:boolean=false
 
   constructor(public rest:TaskServiceService, private route: ActivatedRoute, private router: Router) {
@@ -76,7 +79,18 @@ isEdit:boolean=false
       this.rest.getUser(user_id).subscribe();     
 
     }
+    updateSort(sortOrder){
+      this.sortOrder=sortOrder   
+
+    }
+    deleteUser(user_id) {  
+        
+      if(window.confirm("Are you sure to delete user: "+user_id)) {      
+      this.rest.deletUser(user_id).subscribe(data=>{this.getUsers()}); 
+      }
+      
     
+    }
     
 
 

@@ -47,6 +47,11 @@ updateUser(user:User): Observable<User> {
   );;
 }
 
+deletUser(user_id) {
+  console.log(user_id)
+  return this.http.delete(endpoint + 'users/'+user_id)
+}
+
 
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
