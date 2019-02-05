@@ -76,7 +76,7 @@ isEdit:boolean=false
     }
     updateUser(user_id){
       console.log(user_id)
-      this.rest.getUser(user_id).subscribe();     
+      this.rest.getUser(user_id).subscribe(data=>{this.getUsers()});     
 
     }
     updateSort(sortOrder){

@@ -16,10 +16,14 @@ import {
   MatIconModule,
   MatCardModule,
   MatTabsModule,
-  MatInputModule,
-  MatFormFieldModule,MatListModule,MatTableDataSource,MatButtonToggleModule
-} from '@angular/material';
-
+  MatInputModule,MatSliderModule,
+  MatFormFieldModule,MatListModule,MatTableDataSource,MatCheckboxModule,
+  MatButtonToggleModule,MatDatepickerModule,MatNativeDateModule,
+  } from '@angular/material';
+import { ProjectComponent } from './project/project.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule , MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 
 @NgModule({
@@ -27,7 +31,8 @@ import {
     AppComponent,
     UsersComponent,
     FilterPipe,
-    SortingItemsPipe
+    SortingItemsPipe,
+    ProjectComponent,TasksComponent, DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +41,10 @@ import {
     HttpClientModule,MatButtonToggleModule,
     MatButtonModule,
     MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,MatTabsModule,MatInputModule,FormsModule,MatFormFieldModule,MatListModule
+    MatToolbarModule, 
+    MatIconModule,MatCheckboxModule,MatSliderModule,
+    MatCardModule,MatTabsModule,MatInputModule,FormsModule,MatFormFieldModule,MatListModule,
+    MatDatepickerModule,MatNativeDateModule,MatDialogModule 
            
   ],
   providers: [],

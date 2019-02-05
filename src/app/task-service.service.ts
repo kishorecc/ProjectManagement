@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { User } from './users/users.model';
+import { project } from './project/project-model';
 
 
 const endpoint = 'http://localhost:61588/api/';
@@ -25,7 +26,7 @@ export class TaskServiceService {
       return body || { };
     }
 
-
+//<!--USERS---------------------------------------------------->
   getUsers(): Observable<any> {
   return this.http.get(endpoint + 'users').pipe(map(this.extractData));
 }
@@ -51,6 +52,59 @@ deletUser(user_id) {
   console.log(user_id)
   return this.http.delete(endpoint + 'users/'+user_id)
 }
+
+
+//USERS--------------------------------------------------
+
+//PROJECT------------------------------------------------
+getProjects(): Observable<any> {
+  return this.http.get(endpoint + 'projects').pipe(map(this.extractData));
+}
+
+getProject(project_id): Observable<any> {
+  return this.http.get(endpoint + 'projects/'+project_id).pipe(map(this.extractData));
+}
+
+
+addProject(project:project): Observable<project> {
+  console.log(project)
+  return this.http.post<project>(endpoint + 'projects/',project,httpOptions).pipe(
+    catchError(this.handleError('Addproject', project))
+  );
+}
+
+updateProject(project:project): Observable<project> {
+  console.log(project)
+  return this.http.put<project>(endpoint + 'projects/', project, httpOptions).pipe(
+    catchError(this.handleError('UpdateProj', project))
+  );
+}
+
+deleteProject(project_id) {
+  console.log(project_id)
+  return this.http.delete(endpoint + 'projects/'+project_id)
+}
+
+//PROJECT----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 private handleError<T> (operation = 'operation', result?: T) {

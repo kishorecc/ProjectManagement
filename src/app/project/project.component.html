@@ -1,0 +1,70 @@
+<form #projForm="ngForm" name="projForm" (ngSubmit)="SaveProject()">
+    <div class="example-container">
+        <mat-form-field>
+       <input matInput placeholder="Project Name" id="projectName" [(ngModel)]="projName" name="projName" required>
+       </mat-form-field>
+       
+          
+          <section class="example-section">
+              <mat-checkbox class="example-margin" [(ngModel)]="disabled" name ="disabled">Set Start Date and End Date</mat-checkbox>
+            </section>
+            <mat-form-field>
+          <input matInput [matDatepicker]="startDate" placeholder="Start Date"  name="startDate" [disabled]="!disabled" [(ngModel)]="sDate"/>
+          <mat-datepicker-toggle matSuffix [for]="startDate" [disabled]="!disabled"></mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="endDate" placeholder="End Date" name="endDate" [disabled]="!disabled" [(ngModel)]="eDate" [min]="sDate" />
+            <mat-datepicker-toggle matSuffix [for]="endDate" [disabled]="!disabled"></mat-datepicker-toggle>
+            <mat-datepicker #endDate ></mat-datepicker>
+          </mat-form-field>
+
+      <mat-slider
+        class="example-margin" max="10"  min="0" name="priority" [(ngModel)]="priority" [value] ="priority">
+    </mat-slider>
+      
+    </div>
+      <button  type="submit" mat-raised-button *ngIf="!isEdit">Add Project</button>
+      <button  type="submit" mat-raised-button *ngIf="isEdit" >Update Project</button>
+      <button type="reset" mat-raised-button >Reset</button>
+      
+</form>
+<br>
+<br>
+<mat-form-field>
+    <input matInput [(ngModel)]="searchText" placeholder="Search here">
+    
+  </mat-form-field>
+  Sort by:
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle (click)="updateSort('project1')"  >Project Name</mat-button-toggle>
+        <mat-button-toggle  (click)="updateSort('start_date')"  >Start Date</mat-button-toggle>
+        <mat-button-toggle  (click)="updateSort('end_date')" >End Date</mat-button-toggle>
+</mat-button-toggle-group>
+
+<br>
+<table>
+    <tr *ngFor="let project of projects| filter:searchText| sortingItems:sortOrder :1 ">
+<td>
+<mat-list role="list">
+    <mat-list-item role="listitem">Project: {{project.project1}}</mat-list-item>  
+    <mat-list-item role="listitem">Start Date: {{project.start_date}}</mat-list-item> 
+    <mat-list-item role="listitem">End Date: {{project.end_date}}</mat-list-item> 
+    <mat-list-item role="listitem">Tasks: 0</mat-list-item> 
+    <mat-list-item role="listitem">Completed: {{project.end_date}}</mat-list-item> 
+    <mat-list-item role="listitem">Priority:<mat-slider  class="example-margin" max="10"  min="0" name="priority" [value] =project.priority >
+        
+        </mat-slider> </mat-list-item>
+     
+ </mat-list>
+</td>
+<td>
+    <mat-list role="list">
+        <mat-list-item role="listitem"><button  type="submit" mat-raised-button (click)="getProject(project.project_id)">Edit</button></mat-list-item>
+        <mat-list-item role="listitem"><button  type="submit" mat-raised-button (click)="deleteProject(project.project_id)">Delete</button></mat-list-item>
+        
+     </mat-list>
+
+</td>
+</tr>
+</table>

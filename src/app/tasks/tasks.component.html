@@ -1,3 +1,15 @@
-<p>
-  tasks works!
-</p>
+<form #projForm="ngForm" name="taskForm" (ngSubmit)="SaveTask()">
+    <div class="example-container">
+        <mat-form-field>
+       <input matInput placeholder="Project" id="projectName" [(ngModel)]="projName" name="projName" disabled>
+       </mat-form-field>
+       <button  mat-raised-button (click)="openDialog()">Search</button>
+       
+       
+    </div> 
+      <button  type="submit" mat-raised-button *ngIf="!isEdit">Add Project</button>
+      <button  type="submit" mat-raised-button *ngIf="isEdit" >Update Project</button>
+      <button type="reset" mat-raised-button >Reset</button>
+   
+      
+</form>
