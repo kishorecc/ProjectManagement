@@ -1,19 +1,19 @@
-<h2 mat-dialog-title>Select Parent Task</h2>
+<h2 mat-dialog-title>Select Users</h2>
 <mat-form-field>
-        <input matInput [(ngModel)]="searchText" placeholder="Search here for Parent Tasks">
+        <input matInput [(ngModel)]="searchText" placeholder="Search here for Users">
         
       </mat-form-field>
 <table>
-    <tr *ngFor="let ptask of data |filter:searchText">
+    <tr *ngFor="let user of data |filter:searchText">
 <td>
 <mat-list role="list">
-    <mat-list-item role="listitem">{{ptask.parent_task1}}</mat-list-item>  
+    <mat-list-item role="listitem">{{user.f_name}}  {{user.l_name}} </mat-list-item>  
    </mat-list>
 </td>
 <td>
     <mat-list role="list">
         <mat-list-item role="listitem"><button 
-            [mat-dialog-close]="ptask" mat-raised-button >Select</button></mat-list-item>
+            [mat-dialog-close]="user" mat-raised-button >Select</button></mat-list-item>
       
      </mat-list>
 

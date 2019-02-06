@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Inject} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { User } from '../users/users.model';
 
-import { parentTask } from '../tasks/parentTask-model';
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.css']
+  selector: 'app-user-dialog',
+  templateUrl: './user-dialog.component.html',
+  styleUrls: ['./user-dialog.component.css']
 })
-export class DialogComponent implements OnInit {
+export class UserDialogComponent implements OnInit {
+
   searchText=""
-  constructor(public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: parentTask)
+  constructor(public dialogRef: MatDialogRef<UserDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: User)
      { }
 
   ngOnInit() {

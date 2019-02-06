@@ -23,7 +23,9 @@ import {
 import { ProjectComponent } from './project/project.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { DialogComponent } from './dialog/dialog.component';
-import {MatDialogModule , MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialogModule , MAT_DIALOG_DATA} from '@angular/material';
+import { ProjectDialogComponent } from './project-dialog/project-dialog.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 
 @NgModule({
@@ -32,8 +34,9 @@ import {MatDialogModule , MatDialogRef, MAT_DIALOG_DATA} from '@angular/material
     UsersComponent,
     FilterPipe,
     SortingItemsPipe,
-    ProjectComponent,TasksComponent, DialogComponent
+    ProjectComponent,TasksComponent, DialogComponent, ProjectDialogComponent, UserDialogComponent
   ],
+  entryComponents: [DialogComponent,ProjectComponent,ProjectDialogComponent,UserDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,7 +47,7 @@ import {MatDialogModule , MatDialogRef, MAT_DIALOG_DATA} from '@angular/material
     MatToolbarModule, 
     MatIconModule,MatCheckboxModule,MatSliderModule,
     MatCardModule,MatTabsModule,MatInputModule,FormsModule,MatFormFieldModule,MatListModule,
-    MatDatepickerModule,MatNativeDateModule,MatDialogModule 
+    MatDatepickerModule,MatNativeDateModule,MatDialogModule
            
   ],
   providers: [],

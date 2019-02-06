@@ -1,14 +1,52 @@
-<form #projForm="ngForm" name="taskForm" (ngSubmit)="SaveTask()">
+<form #projForm="ngForm" name="taskForm" (ngSubmit)="SaveTask(projForm)">
     <div class="example-container">
         <mat-form-field>
-       <input matInput placeholder="Project" id="projectName" [(ngModel)]="projName" name="projName" disabled>
-       </mat-form-field>
-       <button  mat-raised-button (click)="openDialog()">Search</button>
-       
-       
+            <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        <input matInput placeholder="Project"  id="projectName" [(ngModel)]="projName" name="projName" disabled>
+                        <button  type="button" mat-raised-button (click)="openDialogProject()" [disabled]="isParent"  >Search</button>
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <input matInput placeholder="Task Name" required id="taskName" [(ngModel)]="taskName" name="taskName" >
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                            
+                            <section class="example-section">
+                                    <mat-checkbox class="example-margin" [(ngModel)]="isParent" name ="isParent">Parent Task</mat-checkbox>
+                                  </section>
+                    </mat-list-item> 
+                    <mat-list-item role="listitem">Priority
+                        <mat-slider
+                            class="example-margin" max="10"  min="0" name="priority" [(ngModel)]="priority" [value] ="priority" [disabled]="isParent" required>
+                        </mat-slider>
+                    </mat-list-item>
+                    <mat-list-item role="listitem"><input matInput placeholder="Parent Task" id="parentTask" [(ngModel)]="parentTask" name="parentTask" disabled>
+                        <button  type="button" mat-raised-button (click)="openDialogParentTask()" [disabled]="isParent">Search</button>
+                    </mat-list-item>
+                     
+                        <mat-list-item>
+                    <mat-form-field>
+                            <input matInput [matDatepicker]="startDate" placeholder="Start Date"  name="startDate" [disabled]="isParent" [(ngModel)]="sDate"/>
+                            <mat-datepicker-toggle matSuffix [for]="startDate" [disabled]="isParent"></mat-datepicker-toggle>
+                            <mat-datepicker #startDate></mat-datepicker>
+                          </mat-form-field>
+                          <mat-form-field>
+                              <input matInput [matDatepicker]="endDate" placeholder="End Date" name="endDate" [disabled]="isParent" [(ngModel)]="eDate" [min]="sDate" />
+                              <mat-datepicker-toggle matSuffix [for]="endDate" [disabled]="isParent"></mat-datepicker-toggle>
+                              <mat-datepicker #endDate ></mat-datepicker>
+                            </mat-form-field>
+                        </mat-list-item>
+                            <mat-list-item role="listitem"><input [disabled]="!isParent" matInput placeholder="User" id="user" [(ngModel)]="userSelect" name="user" disabled>
+                                <button  type="button" mat-raised-button (click)="openDialogUser()" [disabled]="isParent">Search</button>
+                            </mat-list-item>
+
+            </mat-list>       
     </div> 
-      <button  type="submit" mat-raised-button *ngIf="!isEdit">Add Project</button>
-      <button  type="submit" mat-raised-button *ngIf="isEdit" >Update Project</button>
+</mat-form-field>
+    <br>
+    <br>
+      <button  type="submit" mat-raised-button >Add Project</button>
+      
       <button type="reset" mat-raised-button >Reset</button>
    
       

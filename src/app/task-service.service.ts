@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { User } from './users/users.model';
 import { project } from './project/project-model';
+import { parentTask } from './tasks/parentTask-model';
+import { projTask } from './tasks/projTask';
 
 
 const endpoint = 'http://localhost:61588/api/';
@@ -86,6 +88,35 @@ deleteProject(project_id) {
 }
 
 //PROJECT----------------------------------------
+//Parent Prj------------------------------
+getParentTasks(): Observable<any> {
+  
+  return this.http.get(endpoint + 'parent_task').pipe(map(this.extractData));
+}
+addParentTasks(task:parentTask): Observable<parentTask> {
+  console.log(task)
+  return this.http.post<parentTask>(endpoint + 'parent_task/',task,httpOptions).pipe(
+    catchError(this.handleError('AddParentTask', task))
+  );
+}
+
+
+//Parent Prj------------------------------
+//Tasks-------------------------------------------------
+getTasks(): Observable<any> {
+  
+  return this.http.get(endpoint + 'tasks').pipe(map(this.extractData));
+}
+
+addTasks(task:projTask): Observable<projTask> {
+  console.log(task)
+  return this.http.post<projTask>(endpoint + 'tasks/',task,httpOptions).pipe(
+    catchError(this.handleError('AddTask', task))
+  );
+}
+
+
+//Tasks-------------------------------------------------
 
 
 

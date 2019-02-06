@@ -3,6 +3,7 @@ import { project } from "./project-model";
 import {FormControl} from '@angular/forms';
 import { TaskServiceService } from '../task-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogComponent } from '../dialog/dialog.component';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
