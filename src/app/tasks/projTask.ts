@@ -6,4 +6,5 @@ export interface projTask {
     end_date: string;
     priority: number;
     status: boolean;
+    Tasks:string;
 }

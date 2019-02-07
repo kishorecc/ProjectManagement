@@ -1,0 +1,38 @@
+<mat-form-field>
+  <input matInput [(ngModel)]="searchText" placeholder="Search here">
+  
+</mat-form-field>
+Sort by:
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle (click)="updateSort('Priority')"  >Priority</mat-button-toggle>
+      <mat-button-toggle  (click)="updateSort('start_date')"  >Start Date</mat-button-toggle>
+      <mat-button-toggle  (click)="updateSort('end_date')" >End Date</mat-button-toggle>
+</mat-button-toggle-group>
+
+<br>
+<table>
+  <tr *ngFor="let project of viewTasks| filter:searchText| sortingItems:sortOrder :1 ">
+<td>
+<mat-list role="list">
+  <mat-list-item role="listitem">Task: {{project.Tasks}}</mat-list-item>  
+  <mat-list-item role="listitem">Parent Task: {{project.parent_task1}}</mat-list-item>
+    <mat-list-item role="listitem">Start Date: {{project.start_date}}</mat-list-item> 
+  <mat-list-item role="listitem">End Date: {{project.end_date}}</mat-list-item>
+  
+  <mat-list-item role="listitem">Priority:<mat-slider  class="example-margin" max="10"  min="0" name="priority" [value] =project.priority disabled >
+      
+      </mat-slider> </mat-list-item>
+   
+</mat-list>
+</td>
+<td>
+  <mat-list role="list">
+      <mat-list-item role="listitem"><button  type="submit" mat-raised-button (click)="openDialogTask(project)">Edit</button></mat-list-item>
+      <mat-list-item role="listitem"><button  type="submit" mat-raised-button (click)="CompleteTask(project)">Complete</button></mat-list-item>
+      
+   </mat-list>
+
+</td>
+<mat-divider></mat-divider>
+</tr>
+</table>

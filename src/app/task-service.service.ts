@@ -93,6 +93,9 @@ getParentTasks(): Observable<any> {
   
   return this.http.get(endpoint + 'parent_task').pipe(map(this.extractData));
 }
+getParentTask(parent_id): Observable<any> {
+  return this.http.get(endpoint + 'parent_task/'+parent_id).pipe(map(this.extractData));
+}
 addParentTasks(task:parentTask): Observable<parentTask> {
   console.log(task)
   return this.http.post<parentTask>(endpoint + 'parent_task/',task,httpOptions).pipe(
@@ -107,11 +110,22 @@ getTasks(): Observable<any> {
   
   return this.http.get(endpoint + 'tasks').pipe(map(this.extractData));
 }
+getTask(task_id): Observable<any> {
+  return this.http.get(endpoint + 'tasks/'+task_id).pipe(map(this.extractData));
+}
 
 addTasks(task:projTask): Observable<projTask> {
   console.log(task)
   return this.http.post<projTask>(endpoint + 'tasks/',task,httpOptions).pipe(
     catchError(this.handleError('AddTask', task))
+  );
+}
+
+
+updateTask(task:projTask): Observable<projTask> {
+  console.log(task)
+  return this.http.put<projTask>(endpoint + 'tasks/', task, httpOptions).pipe(
+    catchError(this.handleError('UpdateTask', task))
   );
 }
 

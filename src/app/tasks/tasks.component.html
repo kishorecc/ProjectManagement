@@ -1,14 +1,18 @@
 <form #projForm="ngForm" name="taskForm" (ngSubmit)="SaveTask(projForm)">
     <div class="example-container">
-        <mat-form-field>
+        
             <mat-list role="list">
                     <mat-list-item role="listitem">
-                        <input matInput placeholder="Project"  id="projectName" [(ngModel)]="projName" name="projName" disabled>
+                        <input matInput placeholder="Project"  id="projectName" [(ngModel)]="projName" name="projName" disabled required>
                         <button  type="button" mat-raised-button (click)="openDialogProject()" [disabled]="isParent"  >Search</button>
                     </mat-list-item>
+
                     <mat-list-item role="listitem">
-                        <input matInput placeholder="Task Name" required id="taskName" [(ngModel)]="taskName" name="taskName" >
+                            <mat-form-field>
+                        <input matInput placeholder="Task Name"  id="taskName" [(ngModel)]="taskName" name="taskName" required>
+                            </mat-form-field>
                     </mat-list-item>
+                    
                     <mat-list-item role="listitem">
                             
                             <section class="example-section">
@@ -41,11 +45,12 @@
                             </mat-list-item>
 
             </mat-list>       
-    </div> 
-</mat-form-field>
+        
+        </div> 
+
     <br>
     <br>
-      <button  type="submit" mat-raised-button >Add Project</button>
+      <button  type="submit" mat-raised-button >Add Task</button>
       
       <button type="reset" mat-raised-button >Reset</button>
    

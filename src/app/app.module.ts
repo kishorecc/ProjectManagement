@@ -26,6 +26,8 @@ import { DialogComponent } from './dialog/dialog.component';
 import {MatDialogModule , MAT_DIALOG_DATA} from '@angular/material';
 import { ProjectDialogComponent } from './project-dialog/project-dialog.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { ViewtaskComponent } from './viewtask/viewtask.component';
+import { AddtaskDialogComponent } from './addtask-dialog/addtask-dialog.component';
 
 
 @NgModule({
@@ -34,9 +36,9 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     UsersComponent,
     FilterPipe,
     SortingItemsPipe,
-    ProjectComponent,TasksComponent, DialogComponent, ProjectDialogComponent, UserDialogComponent
+    ProjectComponent,TasksComponent, DialogComponent, ProjectDialogComponent, UserDialogComponent, ViewtaskComponent, AddtaskDialogComponent
   ],
-  entryComponents: [DialogComponent,ProjectComponent,ProjectDialogComponent,UserDialogComponent],
+  entryComponents: [DialogComponent,ProjectComponent,ProjectDialogComponent,UserDialogComponent,AddtaskDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

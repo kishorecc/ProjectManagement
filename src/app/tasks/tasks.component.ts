@@ -108,7 +108,9 @@ else{
     "start_date": this.sDate,
     "end_date": this.eDate,
     "priority": this.priority,
-    "status": true}
+    "status": true,
+    "Tasks":this.taskName
+  }
     console.log(this.newProjTask)
     this.rest.addTasks(this.newProjTask).subscribe(data=>{alert("Parent Task Added")})
 

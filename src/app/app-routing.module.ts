@@ -6,11 +6,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ProjectComponent } from './project/project.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { ViewtaskComponent } from './viewtask/viewtask.component';
 
 const routes: Routes = [
   { path: 'Users', component: UsersComponent },
   { path: 'Tasks', component: TasksComponent },
-  {path : 'Project', component : ProjectComponent}
+  {path : 'Project', component : ProjectComponent},
+  {path : 'ViewProjects', component : ViewtaskComponent},
+  { path: '', component: TasksComponent },
 
 ];
 

@@ -1,4 +1,4 @@
-<form #userForm="ngForm" name="userForm" (ngSubmit)="SaveUser()">
+<form #userForm="ngForm" name="userForm" (ngSubmit)="SaveUser(userForm)">
     <div class="example-container">
     <mat-form-field> <input matInput placeholder="First Name" id="firstname" [(ngModel)]="fName" name="fName" required></mat-form-field>
        <mat-form-field>  <input matInput placeholder="Last Name" id="lastname" [(ngModel)]="lName" name="lName" required></mat-form-field>
@@ -11,6 +11,7 @@
 </form>
 <br>
 <br>
+<mat-divider></mat-divider>
 <mat-form-field>
     <input matInput [(ngModel)]="searchText" placeholder="Search here">
     
@@ -22,6 +23,7 @@
         <mat-button-toggle  (click)="updateSort('employee_id')" >Employee ID</mat-button-toggle>
 </mat-button-toggle-group>
 <br>
+
 <table>
     <tr *ngFor="let user of users | filter:searchText| sortingItems:sortOrder :1">
 <td>
@@ -39,5 +41,6 @@
      </mat-list>
 
 </td>
+<mat-divider></mat-divider>
 </tr>
 </table>

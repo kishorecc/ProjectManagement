@@ -1,4 +1,4 @@
-<form #projForm="ngForm" name="projForm" (ngSubmit)="SaveProject()">
+<form #projForm="ngForm" name="projForm" (ngSubmit)="SaveProject(projForm)">
     <div class="example-container">
         <mat-form-field>
        <input matInput placeholder="Project Name" id="projectName" [(ngModel)]="projName" name="projName" required>
@@ -52,7 +52,7 @@
     <mat-list-item role="listitem">End Date: {{project.end_date}}</mat-list-item> 
     <mat-list-item role="listitem">Tasks: 0</mat-list-item> 
     <mat-list-item role="listitem">Completed: {{project.end_date}}</mat-list-item> 
-    <mat-list-item role="listitem">Priority:<mat-slider  class="example-margin" max="10"  min="0" name="priority" [value] =project.priority >
+    <mat-list-item role="listitem">Priority:<mat-slider  class="example-margin" disabled max="10"  min="0" name="priority" [value] =project.priority >
         
         </mat-slider> </mat-list-item>
      
@@ -66,5 +66,6 @@
      </mat-list>
 
 </td>
+<mat-divider></mat-divider>
 </tr>
 </table>
