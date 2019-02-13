@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="9" result="Passed" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="9" engine-version="3.9.0.0" clr-version="4.0.30319.42000" start-time="2019-02-08 10:59:05Z" end-time="2019-02-08 10:59:14Z" duration="9.722415">
+  <command-line><![CDATA["C:\FSE\ProjManAPI\packages\NUnit.ConsoleRunner.3.9.0\tools\nunit3-console.exe" C:\FSE\ProjManAPI\ProjManAPI.Tests\bin\Debug\ProjManAPI.Tests.dll"]]></command-line>
+  <test-suite type="Assembly" id="0-1010" name="ProjManAPI.Tests.dll" fullname="ProjManAPI.Tests.dll" runstate="Runnable" testcasecount="9" result="Passed" start-time="2019-02-08 10:59:07Z" end-time="2019-02-08 10:59:14Z" duration="7.192599" total="9" passed="9" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+    <environment framework-version="3.11.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.1.7601.65536" platform="Win32NT" cwd="C:\FSE\ProjManAPI\ProjManAPI" machine-name="S260977" user="chi7675" user-domain="NM" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\FSE\ProjManAPI\ProjManAPI" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.6.1" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="NumberOfTestWorkers" value="3" />
+    </settings>
+    <properties>
+      <property name="_PID" value="9796" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <test-suite type="TestSuite" id="0-1011" name="ProjManAPI" fullname="ProjManAPI" runstate="Runnable" testcasecount="9" result="Passed" start-time="2019-02-08 10:59:07Z" end-time="2019-02-08 10:59:14Z" duration="7.158379" total="9" passed="9" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+      <test-suite type="TestSuite" id="0-1012" name="Controllers" fullname="ProjManAPI.Controllers" runstate="Runnable" testcasecount="9" result="Passed" start-time="2019-02-08 10:59:07Z" end-time="2019-02-08 10:59:14Z" duration="7.156978" total="9" passed="9" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+        <test-suite type="TestSuite" id="0-1013" name="Tests" fullname="ProjManAPI.Controllers.Tests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2019-02-08 10:59:07Z" end-time="2019-02-08 10:59:14Z" duration="7.156889" total="9" passed="9" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+          <test-suite type="TestFixture" id="0-1000" name="usersControllerTests" fullname="ProjManAPI.Controllers.Tests.usersControllerTests" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2019-02-08 10:59:07Z" end-time="2019-02-08 10:59:14Z" duration="7.147302" total="9" passed="9" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+            <test-case id="0-1009" name="DeleteuserTest" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.DeleteuserTest" methodname="DeleteuserTest" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="758931415" result="Passed" start-time="2019-02-08 10:59:07Z" end-time="2019-02-08 10:59:14Z" duration="6.609025" asserts="1" />
+            <test-case id="0-1008" name="DeleteuserTestNUL" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.DeleteuserTestNUL" methodname="DeleteuserTestNUL" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="1118633650" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.027543" asserts="1" />
+            <test-case id="0-1001" name="GetusersTest" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.GetusersTest" methodname="GetusersTest" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="28083862" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.002782" asserts="1" />
+            <test-case id="0-1002" name="GetuserTest" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.GetuserTest" methodname="GetuserTest" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="155049469" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.006126" asserts="1" />
+            <test-case id="0-1003" name="GetuserTestNull" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.GetuserTestNull" methodname="GetuserTestNull" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="1395153258" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.003024" asserts="1" />
+            <test-case id="0-1007" name="PostuserTes" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.PostuserTes" methodname="PostuserTes" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="510239624" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.457645" asserts="1" />
+            <test-case id="0-1006" name="PostuserTestNUll" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.PostuserTestNUll" methodname="PostuserTestNUll" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="201906745" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.006547" asserts="1" />
+            <test-case id="0-1005" name="PutuserTest" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.PutuserTest" methodname="PutuserTest" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="462544818" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.005794" asserts="1" />
+            <test-case id="0-1004" name="PutuserTestNull" fullname="ProjManAPI.Controllers.Tests.usersControllerTests.PutuserTestNull" methodname="PutuserTestNull" classname="ProjManAPI.Controllers.Tests.usersControllerTests" runstate="Runnable" seed="599446879" result="Passed" start-time="2019-02-08 10:59:14Z" end-time="2019-02-08 10:59:14Z" duration="0.005679" asserts="1" />
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

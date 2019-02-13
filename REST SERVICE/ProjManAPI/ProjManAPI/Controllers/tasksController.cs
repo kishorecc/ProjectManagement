@@ -16,7 +16,16 @@ namespace ProjManAPI.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class tasksController : ApiController
     {
-        private MSBI_NBREQSEntities1 db = new MSBI_NBREQSEntities1();
+        private MSBI_NBREQSEntities1 db;
+
+        public tasksController()
+        {
+            db = new MSBI_NBREQSEntities1();
+        }
+        public tasksController(MSBI_NBREQSEntities1 _db)
+        {
+            db = _db;
+        }
 
         // GET: api/tasks
         public IQueryable<task> Gettasks()

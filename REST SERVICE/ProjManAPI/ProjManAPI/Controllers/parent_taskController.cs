@@ -16,7 +16,18 @@ namespace ProjManAPI.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class parent_taskController : ApiController
     {
-        private MSBI_NBREQSEntities1 db = new MSBI_NBREQSEntities1();
+        
+        public MSBI_NBREQSEntities1 db;
+
+
+        public parent_taskController()
+        {
+            db = new MSBI_NBREQSEntities1();
+        }
+        public parent_taskController(MSBI_NBREQSEntities1 _db)
+        {
+            db = _db;
+        }
 
         // GET: api/parent_task
         public IQueryable<parent_task> Getparent_task()
@@ -95,18 +106,6 @@ namespace ProjManAPI.Controllers
             return Ok(parent_task);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool parent_taskExists(int id)
-        {
-            return db.parent_task.Count(e => e.parent_id == id) > 0;
-        }
+        
     }
 }

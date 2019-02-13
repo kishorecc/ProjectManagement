@@ -16,7 +16,16 @@ namespace ProjManAPI.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class projectsController : ApiController
     {
-        private MSBI_NBREQSEntities1 db = new MSBI_NBREQSEntities1();
+        private MSBI_NBREQSEntities1 db;
+
+        public projectsController()
+        {
+            db = new MSBI_NBREQSEntities1();
+        }
+        public projectsController(MSBI_NBREQSEntities1 _db)
+        {
+            db = _db;
+        }
 
         // GET: api/projects
         public IQueryable<project> Getprojects()
@@ -94,18 +103,6 @@ namespace ProjManAPI.Controllers
             return Ok(project);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool projectExists(int id)
-        {
-            return db.projects.Count(e => e.project_id == id) > 0;
-        }
+  
     }
 }

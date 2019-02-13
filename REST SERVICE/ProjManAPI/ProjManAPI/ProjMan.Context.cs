@@ -13,7 +13,7 @@ namespace ProjManAPI
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MSBI_NBREQSEntities1 : DbContext
+    public partial class MSBI_NBREQSEntities1 : DbContext , IDBModelContext
     {
         public MSBI_NBREQSEntities1()
             : base("name=MSBI_NBREQSEntities1")
@@ -25,9 +25,9 @@ namespace ProjManAPI
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<parent_task> parent_task { get; set; }
-        public virtual DbSet<project> projects { get; set; }
-        public virtual DbSet<task> tasks { get; set; }
-        public virtual DbSet<user> users { get; set; }
+        public virtual  IDbSet<parent_task> parent_task { get; set; }
+        public virtual IDbSet<project> projects { get; set; }
+        public virtual IDbSet<task> tasks { get; set; }
+        public virtual IDbSet<user> users { get; set; }
     }
 }

@@ -10,13 +10,26 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using ProjManAPI;
 using System.Web.Http.Cors;
+using System.Threading.Tasks;
+
 
 namespace ProjManAPI.Controllers
 {
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class usersController : ApiController
     {
-        private MSBI_NBREQSEntities1 db = new MSBI_NBREQSEntities1();
+        public MSBI_NBREQSEntities1 db;
+        
+
+        public usersController()
+        {
+           db = new MSBI_NBREQSEntities1();
+    }
+        public usersController(MSBI_NBREQSEntities1 _db)
+        {
+            db = _db;
+        }
+
 
         // GET: api/users
         public IQueryable<user> Getusers()
@@ -24,6 +37,7 @@ namespace ProjManAPI.Controllers
             return db.users;
         }
 
+      
         // GET: api/users/5
         [ResponseType(typeof(user))]
         public IHttpActionResult Getuser(int id)
@@ -45,8 +59,7 @@ namespace ProjManAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-           
+                     
 
             db.Entry(user).State = EntityState.Modified;
 
@@ -95,18 +108,8 @@ namespace ProjManAPI.Controllers
             return Ok(user);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
 
-        private bool userExists(int id)
-        {
-            return db.users.Count(e => e.user_id == id) > 0;
-        }
+        
     }
 }

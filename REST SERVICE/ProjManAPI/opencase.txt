@@ -1,0 +1,23 @@
+C:\FSE\ProjManAPI\packages\OpenCover.4.7.906-rc\tools\OpenCover.Console.exe -targetargs:"/testcontainer:\"C:\FSE\ProjManAPI\ProjManAPI.Tests\bin\Debug\ProjManAPI.Tests.dll\" /resultsfile:\"C:\FSE\ProjManAPI\GeneratedReports\GeneratedReports.trx\"" -output:"C:\FSE\ProjManAPI\GeneratedReports\dp0GeneratedReports.xml" -target:"%VS120COMNTOOLS%\..\IDE\mstest.exe" 
+
+
+
+C:\FSE\ProjManAPI\reportgenerator.4.0.11\tools\net47\ReportGenerator.exe -reports:"C:\FSE\ProjManAPI\GeneratedReports\dp0GeneratedReports.xml" -targetdir:"C:\FSE\ProjManAPI\GeneratedReports\"
+
+Severity	Code	Description	Project	File	Line	Suppression State
+Error		To reference a library that targets .NET Standard 1.5 or higher, you need to install the .NET Standard Build Support extension for the .NET Framework from https://aka.ms/netstandard-build-support-netfx			0	
+
+
+"..\..\..\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe" -target:"..\..\..\packages\NUnit.ConsoleRunner.3.4.1\tools\nunit3-console.exe" -targetargs:"NAME_OF_TEST_PROJECT.dll" -filter:"+[NAME_OF_PROJECT]NAME_OF_PROJECT*" 
+
+
+C:\FSE\ProjManAPI\packages\OpenCover.4.7.906-rc\tools\OpenCover.Console.exe -target:"C:\FSE\ProjManAPI\packages\NUnit.ConsoleRunner.3.9.0\tools\nunit3-console.exe"  -targetargs:"C:\FSE\ProjManAPI\ProjManAPI.Tests\bin\Debug\ProjManAPI.Tests.dll\" 
+
+
+C:\FSE\ProjManAPI\packages\NUnit.ConsoleRunner.3.9.0\tools
+
+C:\FSE\ProjManAPI\reportgenerator.4.0.11\tools\net47\ReportGenerator.exe -reports:"C:\FSE\ProjManAPI\ProjManAPI\TestResult.xml" -targetdir:"C:\FSE\ProjManAPI\GeneratedReports\"
+C:\FSE\ProjManAPI\packages\OpenCover.4.7.906-rc\tools\OpenCover.Console.exe -targetargs:"C:\FSE\ProjManAPI\ProjManAPI.Tests\bin\Debug\ProjManAPI.Tests.dll" /resultsfile:\"C:\FSE\ProjManAPI\GeneratedReports\GeneratedReports.trx\"" -output:"C:\FSE\ProjManAPI\GeneratedReports\dp0GeneratedReports.xml" -target:"C:\FSE\ProjManAPI\packages\NUnit.ConsoleRunner.3.9.0\tools\nunit3-console.exe"
+
+Working
+C:\FSE\ProjManAPI\packages\OpenCover.4.7.906-rc\tools\OpenCover.Console.exe -targetargs:"C:\FSE\ProjManAPI\ProjManAPI.Tests\bin\Debug\ProjManAPI.Tests.dll" -output:"C:\FSE\ProjManAPI\GeneratedReports\dp0GeneratedReports.xml" -target:"C:\FSE\ProjManAPI\packages\NUnit.ConsoleRunner.3.9.0\tools\nunit3-console.exe" -filter:"+[*]* -[Ihavethetests*]*" -register:user "-filter:+[*]* -[nunit.framework]*
